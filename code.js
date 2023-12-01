@@ -17,6 +17,7 @@ function tsp_ls(distances){
 	var numOfIterations=length*length
 
 	for (var i = 0; i < numOfIterations; i++){
+		repeatCounter=0
 		if (firstIteration==false){
 			previousFirstIndex=firstIndex
 			previousSecondIndex=secondIndex
