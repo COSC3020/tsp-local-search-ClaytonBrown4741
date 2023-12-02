@@ -52,7 +52,28 @@ What is the worst-case asymptotic time complexity of your implementation? What
 is the worst-case asymptotic memory complexity? Add your answer, including your
 reasoning, to this markdown file.  
 
-**NOTE**:  
-I have added the working code and will come back to do the runtime analysis soon. If there  
-is anything you'd like me to change concerning my code, please let me know as soon  
-as possible. Thank you.
+
+**Answer:**  
+In this case, the worst-case asymptotic time complexity would simply be $O(n^2)$ where  
+n is the total amount of cities provided in the graph. This is because in my code I decided  
+that the code should try $n^2$ different combinations. After that, it will simply take the  
+shortest path it had found up until that point and return it to the user. I chose this value  
+because it was long enough to give the code a chance to try out a good amount of combinations  
+while also being quick enough that it wouldn't take a ridiculously long time such as the Held-Karp  
+algorithm would. Of course, the answer isn't guaranteed to be as accurate as the one produced by  
+Held-Karp, but it still has the potential to be very good.  
+As for how I chose my i and k, I simply went ahead and chose them at random every time. However, I did  
+have a few criteria for them in order to avoid repetition. For one, they could never be the same value,  
+as this would just result in the same list as before. Additionally, the values could not be the same  
+ones as they were before, as this would cause the list to swap back to the previous version of itself  
+which would be redundant. I put these conditions into a while loop that would continue to generate a random  
+version of k until it found an answer that satisfied them. However, I did also put a fail safe into this  
+while loop so that it could only loop a maximum of 10 times before exitting and just using the value that  
+it got. This was done to avoid potentially infinite loops, especially when dealing with smaller matrices  
+that don't have many options to choose from.  
+**Question**:  
+For my code, asymptotic memory complexity is a constant amount as it uses the same amount of memory every time  
+regardless of how big the distance matrix is. However, from the sound of the question above, it seems like this  
+may not have been the proper way to go. Should I add something else to my code to make it more dynamic? As stated  
+before, I already made it so that there was certain criteria surrounding i and k that avoided some repeat values  
+as that's what was asked of me in the main instructions, but would you like me to take that even further?
