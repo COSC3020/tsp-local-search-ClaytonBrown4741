@@ -1,3 +1,4 @@
+[![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=12905358&assignment_repo_type=AssignmentRepo)
 # Traveling Salesperson Problem -- Local Search
 
 This exercise is about the Traveling Salesperson Problem I mentioned in the
@@ -49,4 +50,38 @@ Test your new function; I've provided some basic testing code in `code.test.js`.
 
 What is the worst-case asymptotic time complexity of your implementation? What
 is the worst-case asymptotic memory complexity? Add your answer, including your
-reasoning, to this markdown file.
+reasoning, to this markdown file.  
+
+
+**Answer:**  
+In this case, the worst-case asymptotic time complexity would simply be $O(n^3)$ where  
+n is the total amount of cities provided in the graph. This is because in my code I decided  
+that the main for statement should try and loop $n^2$ amount of times. I chose this value  
+because it was long enough to give the code a chance to try out a good amount of combinations  
+while also being quick enough that it wouldn't take a ridiculously long time such as the Held-Karp  
+algorithm would. In addition to this, within every loop I go through the current path and  
+calculate its distance. This takes n amount of time, and because it happens $n^2$ amount of times,  
+this gives us a worst-case asymptotic time complexity of $O(n^3)$. When returning an answer, the  
+program will simply take the shortest path it had found up until that point and return it to the user.  
+Of course, the answer isn't guaranteed to be as accurate as the one produced by Held-Karp, but it  
+still has the potential to be very good. Additionally, please note that I am not including my while loop  
+in my time complexity because it can only loop a maximum of 10 times. Because this is a constant amount  
+of time, it is asymptotically insignificant so I do not include it.  
+As for how I chose my i and k, I simply went ahead and chose them at random every time. However, I did  
+have a few criteria for them in order to avoid repetition. For one, they could never be the same value,  
+as this would just result in the same list as before. Additionally, the values could not be the same  
+ones as they were before, as this would cause the list to swap back to the previous version of itself  
+which would be redundant. I put these conditions into a while loop that would continue to generate a random  
+version of k until it found an answer that satisfied them. However, I did also put a fail safe into this  
+while loop so that it could only loop a maximum of 10 times before exitting and just using the value that  
+it got. This was done to avoid potentially infinite loops, especially when dealing with smaller matrices  
+that don't have many options to choose from.  
+**Memory Complexity**:  
+The worst-case asymptotic complexity of this program is simply O(n) where n is the total amount of cities  
+provided in the graph. This is because at the very beginning of the program I make a list that contains all  
+the cities for future reference and for calculating how many times the for loop should repeat (that being n*n  
+times as described above). In addition to this, in my optswap function I make a copy of the current path for the  
+purpose of altering it. The amount of memory this extra array takes up is "n" as well. Finally, in that same  
+function I split the array into three more separate parts in order to manipulate them as necessary. All three  
+of these parts put together gives us another "n" amount of memory that is used, so that means that the final  
+asymptotic complexity of this program is O(3n) which is a linear amount and simplifies to O(n)
