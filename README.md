@@ -56,7 +56,7 @@ reasoning, to this markdown file.
 **Answer:**  
 In this case, the worst-case asymptotic time complexity would simply be $O(n^3)$ where  
 n is the total amount of cities provided in the graph. This is because in my code I decided  
-that the main for statement should try and loop at *least* n^2 amount of times. I chose this value  
+that the main for statement should try and loop $n^2$ amount of times. I chose this value  
 because it was long enough to give the code a chance to try out a good amount of combinations  
 while also being quick enough that it wouldn't take a ridiculously long time such as the Held-Karp  
 algorithm would. In addition to this, within every loop I go through the current path and  
@@ -79,5 +79,9 @@ that don't have many options to choose from.
 **Memory Complexity**:  
 The worst-case asymptotic complexity of this program is simply O(n) where n is the total amount of cities  
 provided in the graph. This is because at the very beginning of the program I make a list that contains all  
-these cities for future reference and for calculating how many times the for loop should repeat (that being n*n  
-times as described above). Other than that, all other memory use is constant.
+the cities for future reference and for calculating how many times the for loop should repeat (that being n*n  
+times as described above). In addition to this, in my optswap function I make a copy of the current path for the  
+purpose of altering it. The amount of memory this extra array takes up is "n" as well. Finally, in that same  
+function I split the array into three more separate parts in order to manipulate them as necessary. All three  
+of these parts put together gives us another "n" amount of memory that is used, so that means that the final  
+asymptotic complexity of this program is O(3n) which is a linear amount and simplifies to O(n)
